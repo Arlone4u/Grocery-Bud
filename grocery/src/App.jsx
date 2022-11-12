@@ -26,7 +26,7 @@ function App() {
     e.preventDefault();
     
     if (!name) {
-      showAlert(true, 'danger', 'please enter value'); // displays the alert message if no item is being added
+      showAlert(true, 'danger', 'Please Enter Item To Added To Basket'); // displays the alert message if no item is being added
     } else if (name && isEditing) { 
       setList(
         list.map((item) => {
@@ -39,10 +39,10 @@ function App() {
       setName('');
       setEditID(null);
       setIsEditing(false);
-      showAlert(true, 'success', 'value changed');
+      showAlert(true, 'success', 'Item Changed To ' + (name));
     } // then shows the value is changed if success
     else {
-      showAlert(true, 'success', 'item added to the list');
+      showAlert(true, 'success', (name) + ' Added to The Basket');
       const newItem = { id: new Date().getTime().toString(), title: name };
       setList([...list, newItem]);
       setName('');
@@ -59,7 +59,7 @@ function App() {
     setList([]);
   };
   const removeItem = (id) => {
-    showAlert(true, 'danger', 'item removed');
+    showAlert(true, 'danger', ' Removed From The Basket');
     setList(list.filter((item) => item.id !== id));
   };
   const editItem = (id) => {
